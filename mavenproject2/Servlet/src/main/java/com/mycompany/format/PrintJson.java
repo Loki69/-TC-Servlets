@@ -1,32 +1,49 @@
 package com.mycompany.format;
 
+import com.mycompany.structure.data.News;
 import com.mycompany.structure.NewsList;
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonBuilderFactory;
-import javax.json.JsonObject;
+import java.util.Arrays;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-public class PrintJson extends printFormat {
+public class PrintJson extends PrintFormat {
+//
 
-    private JsonArray jsonArray;
+    private JSONObject jsonResult;
+//
 
-    public PrintJson() {
-        
+    public PrintJson(NewsList news) {
+        generatPrint(news);
     }
 
-    @Override
-    public void generatPrint(NewsList news) {
-        jsonArray = new JsonArray();
-        
+    private void generatPrint(NewsList news) {
+        jsonResult = new JSONObject();
+        jsonResult.put("news", toJsonArray(news));
     }
 
-    private String toJson(News news) {
-        return String.format("{}", news.CATEGORY, news.TITLE);
+    private JSONArray toJsonArray(NewsList news) {
+        JSONArray array = new JSONArray();
+        List<News> resors = news.getList();
+        for (News resor : resors) {
+            array.put(toJson(resor));
+        }
+        return array;
+    }
+
+    private JSONObject toJson(News news) {
+        JSONObject obj = new JSONObject();
+        obj.put("catalog", news.CATEGORY)
+                .put("title", news.TITLE)
+                .put("publisheDate", news.PUBLISHED_DATE)
+                .put("source", news.SOURCE)
+                .put("images", Arrays.toString(news.IMAGES));
+        return obj;
     }
 
     @Override
     public String print() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return jsonResult.toString();
     }
 
 }

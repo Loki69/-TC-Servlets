@@ -1,6 +1,6 @@
 package com.mycompany.structure;
 
-import com.mycompany.servlet.News;
+import com.mycompany.structure.data.News;
 import java.util.List;
 import java.util.ArrayList;
 
