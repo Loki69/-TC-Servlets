@@ -1,31 +1,27 @@
 package com.mycompany.format;
 
 import com.mycompany.structure.data.News;
-import com.mycompany.structure.NewsList;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class PrintJson extends PrintFormat {
-//
+public class JsonPrinter implements FormatPrinter {
 
     private JSONObject jsonResult;
-//
 
-    public PrintJson(NewsList news) {
+    public JsonPrinter(List<News> news) {
         generatPrint(news);
     }
 
-    private void generatPrint(NewsList news) {
+    private void generatPrint(List<News> news) {
         jsonResult = new JSONObject();
         jsonResult.put("news", toJsonArray(news));
     }
 
-    private JSONArray toJsonArray(NewsList news) {
+    private JSONArray toJsonArray(List<News> news) {
         JSONArray array = new JSONArray();
-        List<News> resors = news.getList();
-        for (News resor : resors) {
+        for (News resor : news) {
             array.put(toJson(resor));
         }
         return array;
@@ -41,7 +37,6 @@ public class PrintJson extends PrintFormat {
         return obj;
     }
 
-    @Override
     public String print() {
         return jsonResult.toString();
     }

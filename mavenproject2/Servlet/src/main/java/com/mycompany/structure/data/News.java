@@ -29,6 +29,5 @@ public class News {
         this.AUTHOR = AUTHOR;
         this.SOURCE = SOURCE;
     }
-    
 
 }

@@ -1,10 +1,9 @@
 package com.mycompany.servlet;
 
 import com.mycompany.admin.NewsToDisplay;
-import com.mycompany.format.PrintFormat;
-import com.mycompany.format.PrintJson;
+import com.mycompany.format.JsonPrinter;
+import com.mycompany.format.FormatPrinter;
 import com.mycompany.storage.Storege;
-import com.mycompany.structure.NewsList;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,14 +20,12 @@ public class News extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            //TODO:Сделать фабрику или бругой клас для формирования ответа
             NewsToDisplay displ = new NewsToDisplay();
-            Storege storeg = new Storege();
-            NewsList list = storeg.getNews(displ);            
-            PrintJson pf = new PrintJson(list);
+            Storege storege = new Storege();
+            FormatPrinter pf = new JsonPrinter(storege.getNews(displ));
             out.println(pf.print());
-            
         } finally {
-            
             out.close();
         }
     }
@@ -49,5 +46,4 @@ public class News extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-
 }

@@ -3,7 +3,6 @@ package com.mycompany.admin;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class NewsToDisplay {
 
     private List<NewsDisplay> listNews;
