@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.mycompany.servlet;
 
 import java.io.File;
@@ -21,9 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-@WebServlet(name="AddFile", urlPatterns={"/AddFile"})
-@MultipartConfig
-public class AddFile extends HttpServlet {
+@WebServlet(name="Upload", urlPatterns={"/Upload"})
+@MultipartConfig(location="C:\\tmp", fileSizeThreshold=1024*1024, 
+    maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
+public class Upload extends HttpServlet {
    
 protected void processRequest(HttpServletRequest request,
         HttpServletResponse response)
@@ -97,6 +92,6 @@ private String getFileName(final Part part) {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

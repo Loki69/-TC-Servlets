@@ -1,0 +1,22 @@
+<%@page import="java.io.*"%> 
+<%@page import="java.util.*" %> 
+<%!        public void getDirectory() {
+
+        File newsDependeci = new File("c:\\temp");
+        File title[] = newsDependeci.listFiles();
+        for (int i = 0; i < title.length; i++) {
+            System.out.println(title[i].getName());
+        }
+    }
+%> 
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Url</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%getDirectory();%>
+    </tbody>
+</table>
