@@ -1,31 +1,27 @@
 package com.mycompany.admin;
 
-import java.util.ArrayList;
+import com.mycompany.admin.orpions.OptionsSelection;
+import com.mycompany.format.FormatPrinter;
+import com.mycompany.format.JsonPrinter;
+import com.mycompany.storage.Storege;
+import com.mycompany.structure.data.News;
 import java.util.List;
 
 public class NewsToDisplay {
 
-    private List<NewsDisplay> listNews;
+    private List<News> listNews;
 
     public NewsToDisplay() {
-        //TODO: ƒанный клас не должен добовл€ть новость
-        //TODO:класс запрашиваь у некоторого алгоритма новости
-        //пока по умолчанию будет заполнен
-        this.listNews = new ArrayList();
-        listNews.add(new NewsDisplay(1, 10));
-        listNews.add(new NewsDisplay(2, 10));
-        listNews.add(new NewsDisplay(3, 10));
-        listNews.add(new NewsDisplay(4, 10));
-        listNews.add(new NewsDisplay(5, 10));
-        listNews.add(new NewsDisplay(6, 10));
     }
 
-    public List<NewsDisplay> newsToDisplay() {
-        return listNews;
+    public String printJson() {
+        List<News> newsList = getNewsToDisplay();
+        FormatPrinter print = new JsonPrinter(newsList);
+        return print.print();
     }
 
-    public List<NewsDisplay> getConfig() {
-        return listNews;
+    private List<News> getNewsToDisplay() {
+        Storege storege = new Storege();
+        return storege.getNews(new OptionsSelection());
     }
-
 }

@@ -20,11 +20,8 @@ public class News extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            //TODO:Сделать фабрику или бругой клас для формирования ответа
             NewsToDisplay displ = new NewsToDisplay();
-            Storege storege = new Storege();
-            FormatPrinter pf = new JsonPrinter(storege.getNews(displ));
-            out.println(pf.print());
+            out.println(displ.printJson());
         } finally {
             out.close();
         }

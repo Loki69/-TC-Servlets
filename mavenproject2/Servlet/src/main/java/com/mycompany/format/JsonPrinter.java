@@ -29,11 +29,11 @@ public class JsonPrinter implements FormatPrinter {
 
     private JSONObject toJson(News news) {
         JSONObject obj = new JSONObject();
-        obj.put("catalog", news.CATEGORY)
-                .put("title", news.TITLE)
-                .put("publisheDate", news.PUBLISHED_DATE)
-                .put("source", news.SOURCE)
-                .put("images", Arrays.toString(news.IMAGES));
+        obj.put("catalog", news.category)
+                .put("title", news.title)
+                .put("publisheDate", news.publishedDate)
+                .put("source", news.source)
+                .put("images", Arrays.toString(news.images));
         return obj;
     }
 
