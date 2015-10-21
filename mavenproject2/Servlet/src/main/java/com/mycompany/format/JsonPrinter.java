@@ -37,7 +37,7 @@ public class JsonPrinter implements FormatPrinter {
         return obj;
     }
 
-    public String print() {
+    public String toString() {
         return jsonResult.toString();
     }
 

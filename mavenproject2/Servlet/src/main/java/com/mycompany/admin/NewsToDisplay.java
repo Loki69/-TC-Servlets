@@ -17,7 +17,7 @@ public class NewsToDisplay {
     public String printJson() {
         List<News> newsList = getNewsToDisplay();
         FormatPrinter print = new JsonPrinter(newsList);
-        return print.print();
+        return print.toString();
     }
 
     private List<News> getNewsToDisplay() {
