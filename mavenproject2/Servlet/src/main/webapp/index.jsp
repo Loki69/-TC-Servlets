@@ -7,7 +7,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%@ include file="jsp/existFile.jspf"%>
         <%@ include file="jsp/addFile.jspf"%>
+        <%@ include file="jsp/existFile.jspf"%>
     </body>
 </html>

@@ -1,15 +1,20 @@
+<%@page import="java.util.List"%>
+<%@page import="com.mycompany.storage.StroregeFoldersDependence"%>
+<%@page import="java.nio.file.Paths"%>
+<%@page import="java.nio.file.Files"%>
 <%@page import="java.io.File"%>
+
 <%!
     public String shouRowsTabl() {
-        File newsDependeci = new File("c:\\tmp");
-        File title[] = newsDependeci.listFiles();
+        List<String> folders = new StroregeFoldersDependence().getPathToDependence();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < title.length; i++) {
-            sb.append("<tr><td>").append(title[i]).append("</td></tr>");
+        for (String st : folders) {
+            sb.append("<tr><td>").append(st).append("</td></tr>");
         }
         return sb.toString();
     }
 %>
+
 <table border="1">
     <tr>
         <th>Url</th> 

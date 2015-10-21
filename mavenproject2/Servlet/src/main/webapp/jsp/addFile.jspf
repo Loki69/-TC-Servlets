@@ -1,7 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
-<form method="POST" action="Upload" enctype="multipart/form-data" >
-    File: <input type="file" name="file" id="file" /> <br/>
-    Destination:
+<form method="GET" action="Upload" enctype="multipart/form-data" >
+    Folder:
     <input type="text" value="/tmp" name="destination"/>
     </br>
     <input type="submit" value="Upload" name="Upload" id="pload" />

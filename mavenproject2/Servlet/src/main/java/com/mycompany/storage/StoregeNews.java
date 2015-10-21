@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
 
-public class Storege {
+public class StoregeNews {
 
-    private Logger log = Logger.getLogger(Storege.class);
+    private Logger log = Logger.getLogger(StoregeNews.class);
 
     public void addToStorege(News list) {
         log.info("try add new data");
