@@ -18,7 +18,7 @@ public class News extends HttpServlet {
             out.println("{\n" +
 "    category: \"career\",\n" +
 "    title: \"EPAM Educational Programs in Solution Architecture\",\n" +
-"    description: \"EPAMâ€™S CTO office has been growing Solution Architecture (SA) as a discipline in a systematized and centralized way since 2014. A number of educational activities for Solution Architects have already been launched, and more are in the pipeline. Letâ€™s have a closer look at whatâ€™s available.\",\n" +
+"    description: \"EPAM’S CTO office has been growing Solution Architecture (SA) as a discipline in a systematized and centralized way since 2014. A number of educational activities for Solution Architects have already been launched, and more are in the pipeline. Let’s have a closer look at what’s available.\",\n" +
 "    images: [\"http://info.epam.com/content/dam/infoepam/editorial/photo/2015/sau_heading.jpg\"],\n" +
 "    publishedDate: \"09.10.2015 11:23:00\",\n" +
 "    priority: 1,\n" +
