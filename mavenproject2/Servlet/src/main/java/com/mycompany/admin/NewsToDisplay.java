@@ -15,6 +15,7 @@ public class NewsToDisplay {
 
     public String printJson() {
         List<News> newsList = getNewsToDisplay();
+        System.out.println(newsList.size());
         FormatPrinter print = new JsonPrinter(newsList);
         return print.toString();
     }

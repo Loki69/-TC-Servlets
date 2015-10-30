@@ -8,9 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.log4j.Logger;
 
-@WebServlet(name = "News", urlPatterns = {"/api.news"})
+@WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
 public class NewsAPI extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
